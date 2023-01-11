@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/config-server/springcloud-microservice-config-server.iml" filepath="$PROJECT_DIR$/config-server/springcloud-microservice-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/springcloud-microservice-eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/springcloud-microservice-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flower-market/springcloud-microservice-flower-market.iml" filepath="$PROJECT_DIR$/flower-market/springcloud-microservice-flower-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flower-provider/springcloud-microservice-flower-provider.iml" filepath="$PROJECT_DIR$/flower-provider/springcloud-microservice-flower-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springcloud-microservices.iml" filepath="$PROJECT_DIR$/.idea/springcloud-microservices.iml" />
+    </modules>
+  </component>
+</project>

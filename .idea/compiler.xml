@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-microservice-config-server" />
+        <module name="springcloud-microservice-eureka-server" />
+        <module name="springcloud-microservice-flower-market" />
+        <module name="springcloud-microservice-flower-provider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud-microservice-config-server" target="17" />
+      <module name="springcloud-microservice-eureka-server" target="17" />
+      <module name="springcloud-microservice-flower-market" target="17" />
+      <module name="springcloud-microservice-flower-provider" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springcloud-microservice-config-server" options="-parameters" />
+      <module name="springcloud-microservice-eureka-server" options="-parameters" />
+      <module name="springcloud-microservice-flower-market" options="-parameters" />
+      <module name="springcloud-microservice-flower-provider" options="-parameters" />
+    </option>
+  </component>
+</project>

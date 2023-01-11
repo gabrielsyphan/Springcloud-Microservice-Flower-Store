@@ -48,6 +48,22 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "Config Server - provider",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Config Server - store",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
