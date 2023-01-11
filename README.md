@@ -1,5 +1,5 @@
 # Springcloud Microservices - Flower Store
-This is a Flower store created in a microservice architecture using Springboot and Eureka, Config Service and so on.
+This is a Flower store created in a microservice architecture using Springboot, Eureka, Config Service and so on.
 
 ## Configuration
 You should have Docker compose and Maven installed on your machine.
