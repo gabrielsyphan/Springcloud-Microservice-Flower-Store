@@ -1,8 +1,8 @@
 # Springcloud Microservices - Flower Store
-This is a Flower store created in a microservice architecture using Springboot, Eureka, Config Service and so on.
+This is a Flower store created in a microservice architecture using Springboot, Eureka, Ribbon, OpenFeign, Config Service and so on.
 
 ## Configuration
-You should have Docker compose and Maven installed on your machine.
+You should have Docker compose, Maven and JDK 17 installed on your machine.
 
 * On root folder, run `docker-compose up -d` to start the database.
 * On each microservice folder, run `mvn clean install` to build the microservice.

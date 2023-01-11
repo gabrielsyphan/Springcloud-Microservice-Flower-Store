@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.dto;
+package com.syphan.springcloudmicroserviceflowermarket.model.dto;
 
 public class AddressDto {
 
@@ -46,5 +46,15 @@ public class AddressDto {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "AddressDto{" +
+                "street='" + street + '\'' +
+                ", number=" + number +
+                ", state='" + state + '\'' +
+                ", city='" + city + '\'' +
+                '}';
     }
 }

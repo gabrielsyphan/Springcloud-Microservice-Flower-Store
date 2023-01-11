@@ -1,7 +1,6 @@
 package com.syphan.springcloudmicroserviceflowermarket.model.dto;
 
 import com.syphan.springcloudmicroserviceflowermarket.model.Item;
-import com.syphan.springcloudmicroserviceflowermarket.dto.AddressDto;
 
 import java.util.List;
 

@@ -1,5 +1,6 @@
 package com.syphan.springcloudmicroserviceflowermarket.controller;
 
+import com.syphan.springcloudmicroserviceflowermarket.model.OrderEntity;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
 import com.syphan.springcloudmicroserviceflowermarket.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public String createOrder(@RequestBody OrderDto orderDto) {
-        this.orderService.createOrder(orderDto);
-        return "Order created";
+    public OrderEntity createOrder(@RequestBody OrderDto orderDto) {
+        return this.orderService.createOrder(orderDto);
     }
 }
