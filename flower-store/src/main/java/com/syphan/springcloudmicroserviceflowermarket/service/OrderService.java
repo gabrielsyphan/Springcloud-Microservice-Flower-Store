@@ -33,19 +33,25 @@ public class OrderService {
                 HttpMethod.GET, null, ProviderDto.class
             );
         response.getBody().getAddress() */
+        try {
+            ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
+            if(providerDto == null) {
+                logger.error("Provider not found");
+                throw new NotFoundException("Provider not found");
+            }
 
-        ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
-        if(providerDto == null) {
-            logger.error("Provider not found");
-            throw new NotFoundException("Provider not found");
+            ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
+            this.logger.info("Provider order info: {}", providerOrderInfoDto);
+
+            OrderEntity orderEntity = new OrderEntity();
+            orderEntity.setId(providerOrderInfoDto.getId());
+            orderEntity.setLeadTime(providerOrderInfoDto.getLeadTime());
+            orderEntity.setDestinationAddress(orderDto.getAddress().toString());
+
+            return orderEntity;
+        } catch (Exception e) {
+            this.logger.error("Error when create order: {}", e.getMessage());
+            throw e;
         }
-
-        ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
-        OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setId(providerOrderInfoDto.getId());
-        orderEntity.setLeadTime(providerOrderInfoDto.getLeadTime());
-        orderEntity.setDestinationAddress(orderDto.getAddress().toString());
-
-        return orderEntity;
     }
 }
