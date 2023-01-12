@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class OrderService {
@@ -36,13 +35,17 @@ public class OrderService {
         try {
             ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
             if(providerDto == null) {
-                logger.error("Provider not found");
+                this.logger.error("Provider not found");
                 throw new NotFoundException("Provider not found");
             }
 
             ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
-            this.logger.info("Provider order info: {}", providerOrderInfoDto);
+            if(providerOrderInfoDto == null) {
+                this.logger.error("Could not create order");
+                throw new NotFoundException("Could not create order");
+            }
 
+            this.logger.info("Provider order info: {}", providerOrderInfoDto);
             OrderEntity orderEntity = new OrderEntity();
             orderEntity.setId(providerOrderInfoDto.getId());
             orderEntity.setLeadTime(providerOrderInfoDto.getLeadTime());

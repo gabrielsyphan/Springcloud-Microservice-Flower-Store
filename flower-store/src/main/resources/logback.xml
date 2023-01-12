@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
     <appender name="PAPERTRAIL" class="ch.qos.logback.classic.net.SyslogAppender">
-        <syslogHost>logsN.papertrailapp.com</syslogHost>
+        <syslogHost>logs5.papertrailapp.com</syslogHost>
         <port>26077</port>
         <facility>USER</facility>
-        <suffixPattern>my-app: %logger %msg</suffixPattern>
+        <suffixPattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-5level){%5p} %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}</suffixPattern>
     </appender>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -13,7 +15,7 @@
                 %msg%n</pattern>
         </encoder>
     </appender>
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="PAPERTRAIL" />
     </root>

@@ -21,7 +21,7 @@ public class InfoService {
 
     public InfoEntity getInfoByState(String state) {
         InfoEntity infoEntity = this.infoRepository.findByState(state);
-        if(!infoEntity) {
+        if(infoEntity == null) {
             this.logger.info("Info not found for state: {}", state);
             throw new RuntimeException("Info not found");
         }
