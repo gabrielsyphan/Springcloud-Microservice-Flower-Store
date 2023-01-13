@@ -11,7 +11,6 @@ You should have Docker compose, Maven and JDK 17 installed on your machine.
 ## Microservices
 * [Eureka](http://localhost:8761)
 * [Config Service](http://localhost:8888)
-* [API Gateway](http://localhost:8880)
 * [Flower Store](http://localhost:8080)
 * [Flower Provider](http://localhost:8081)
 
