@@ -1,9 +1,8 @@
 package com.syphan.springcloudmicroserviceflowerprovider.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class OrderEntity {
@@ -14,12 +13,21 @@ public class OrderEntity {
 
     private int leadTime;
 
+    private String state;
+
+    @ManyToMany
+    private List<ItemEntity> items;
+
+    private String address;
 
     public OrderEntity() { }
 
-    public OrderEntity(long id, int leadTime) {
+    public OrderEntity(long id, int leadTime, String state, String address,List<ItemEntity> items) {
         this.id = id;
         this.leadTime = leadTime;
+        this.state = state;
+        this.items = items;
+        this.address = address;
     }
 
     public long getId() {
@@ -36,5 +44,29 @@ public class OrderEntity {
 
     public void setLeadTime(int leadTime) {
         this.leadTime = leadTime;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public List<ItemEntity> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemEntity> items) {
+        this.items = items;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

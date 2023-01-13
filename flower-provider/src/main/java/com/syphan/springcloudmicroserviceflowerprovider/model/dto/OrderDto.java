@@ -1,6 +1,6 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowerprovider.model.dto;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
+import com.syphan.springcloudmicroserviceflowerprovider.model.ItemEntity;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.List;

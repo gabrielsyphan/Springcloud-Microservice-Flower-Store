@@ -1,15 +1,18 @@
-package com.syphan.springcloudmicroserviceflowermarket.model;
+package com.syphan.springcloudmicroserviceflowerprovider.model.dto;
 
-public class Item {
+public class ItemDto {
 
     private long id;
     private long quantity;
 
-    public Item() { }
+    private String name;
 
-    public Item(long id, long quantity) {
+    public ItemDto() { }
+
+    public ItemDto(long id, long quantity, String name) {
         this.id = id;
         this.quantity = quantity;
+        this.name = name;
     }
 
     public long getId() {
@@ -26,5 +29,13 @@ public class Item {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -4,6 +4,7 @@ import com.syphan.springcloudmicroserviceflowermarket.client.ProviderClient;
 import com.syphan.springcloudmicroserviceflowermarket.model.OrderEntity;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderDto;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderOrderInfoDto;
+import com.syphan.springcloudmicroserviceflowermarket.repository.OrderRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -19,9 +22,12 @@ public class OrderService {
 
     private final ProviderClient providerClient;
 
+    private final OrderRepository orderRepository;
+
     @Autowired
-    public OrderService(ProviderClient providerClient) {
+    public OrderService(ProviderClient providerClient, OrderRepository orderRepository) {
         this.providerClient = providerClient;
+        this.orderRepository = orderRepository;
     }
 
     public OrderEntity createOrder(OrderDto orderDto) {
@@ -33,13 +39,13 @@ public class OrderService {
             );
         response.getBody().getAddress() */
         try {
-            ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
-            if(providerDto == null) {
+            List<ProviderDto> providers = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
+            if(providers.isEmpty()) {
                 this.logger.error("Provider not found");
                 throw new NotFoundException("Provider not found");
             }
 
-            ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
+            ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto);
             if(providerOrderInfoDto == null) {
                 this.logger.error("Could not create order");
                 throw new NotFoundException("Could not create order");
@@ -50,6 +56,7 @@ public class OrderService {
             orderEntity.setId(providerOrderInfoDto.getId());
             orderEntity.setLeadTime(providerOrderInfoDto.getLeadTime());
             orderEntity.setDestinationAddress(orderDto.getAddress().toString());
+            this.orderRepository.save(orderEntity);
 
             return orderEntity;
         } catch (Exception e) {
