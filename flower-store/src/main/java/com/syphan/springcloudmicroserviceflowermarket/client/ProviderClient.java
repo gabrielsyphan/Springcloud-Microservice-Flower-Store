@@ -1,6 +1,7 @@
 package com.syphan.springcloudmicroserviceflowermarket.client;
 
 import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
+import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderDto;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderOrderInfoDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,8 +16,8 @@ public interface ProviderClient {
 
     // Feign is connected with Eureka and Ribbon, thus it can find the provider endpoint
 
-    @RequestMapping("/info/{state}")
-    ProviderDto getProviderInfo(@PathVariable String state);
+    @RequestMapping("/provider/{state}")
+    List<ProviderDto> getProviderInfo(@PathVariable String state);
 
     @RequestMapping(method = RequestMethod.POST, value = "/order")
     ProviderOrderInfoDto createOrder(List<ItemEntity> itemEntities);

@@ -1,6 +1,6 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowerprovider.model.dto;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
+import com.syphan.springcloudmicroserviceflowerprovider.model.ItemEntity;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
@@ -8,17 +8,17 @@ import java.util.List;
 public class OrderDto {
 
     @NotNull
-    private List<ItemEntity> itemEntities;
+    private List<ItemEntity> items;
 
     @NotNull
     private AddressDto address;
 
     public List<ItemEntity> getItems() {
-        return itemEntities;
+        return items;
     }
 
-    public void setItems(List<ItemEntity> itemEntities) {
-        this.itemEntities = itemEntities;
+    public void setItems(List<ItemEntity> items) {
+        this.items = items;
     }
 
     public AddressDto getAddress() {

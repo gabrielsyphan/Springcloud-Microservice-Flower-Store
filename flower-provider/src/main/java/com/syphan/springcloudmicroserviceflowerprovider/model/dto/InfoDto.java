@@ -1,6 +1,6 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowerprovider.model.dto;
 
-public class ProviderDto {
+public class InfoDto {
 
     private String name;
 
@@ -8,9 +8,9 @@ public class ProviderDto {
 
     private String address;
 
-    public ProviderDto() { }
+    public InfoDto() { }
 
-    public ProviderDto(String name, String state, String address) {
+    public InfoDto(String name, String state, String address) {
         this.name = name;
         this.state = state;
         this.address = address;

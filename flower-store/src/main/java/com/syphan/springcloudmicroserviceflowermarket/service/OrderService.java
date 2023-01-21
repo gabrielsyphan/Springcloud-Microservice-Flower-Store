@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -49,7 +51,7 @@ public class OrderService {
                 return orderEntity;
             }
 
-            ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
+            ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto);
             if(providerOrderInfoDto == null) {
                 this.logger.error("Could not create order");
                 return orderEntity;
