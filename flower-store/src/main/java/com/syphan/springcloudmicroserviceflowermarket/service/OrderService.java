@@ -45,7 +45,7 @@ public class OrderService {
             orderEntity.setStatus(Status.CREATED);
             this.orderRepository.save(orderEntity);
 
-            ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
+            List<ProviderDto> providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
             if(providerDto == null) {
                 this.logger.error("Provider not found");
                 return orderEntity;
@@ -68,5 +68,22 @@ public class OrderService {
             this.logger.error("Error when create order: {}", e.getMessage());
             throw e;
         }
+    }
+
+    public void deleteOrder(Long id) {
+        this.orderRepository.delete(this.getOrder(id));
+    }
+
+    public OrderEntity getOrder(Long id) {
+        return this.orderRepository.findById(id).orElseThrow(
+            () -> new NotFoundException("Order not found")
+        );
+    }
+
+    public OrderEntity updateOrder(OrderEntity orderEntity) {
+        OrderEntity order = this.getOrder(orderEntity.getId());
+        order.setDestinationAddress(orderEntity.getDestinationAddress());
+        this.orderRepository.save(order);
+        return order;
     }
 }

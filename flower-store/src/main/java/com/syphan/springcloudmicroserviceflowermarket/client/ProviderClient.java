@@ -20,5 +20,5 @@ public interface ProviderClient {
     List<ProviderDto> getProviderInfo(@PathVariable String state);
 
     @RequestMapping(method = RequestMethod.POST, value = "/order")
-    ProviderOrderInfoDto createOrder(List<ItemEntity> itemEntities);
+    ProviderOrderInfoDto createOrder(OrderDto order);
 }
