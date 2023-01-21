@@ -4,6 +4,8 @@ import com.syphan.springcloudmicroserviceflowermarket.client.ProviderClient;
 import com.syphan.springcloudmicroserviceflowermarket.model.OrderEntity;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderDto;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderOrderInfoDto;
+import com.syphan.springcloudmicroserviceflowermarket.model.enums.Status;
+import com.syphan.springcloudmicroserviceflowermarket.repository.OrderRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +21,12 @@ public class OrderService {
 
     private final ProviderClient providerClient;
 
+    private final OrderRepository orderRepository;
+
     @Autowired
-    public OrderService(ProviderClient providerClient) {
+    public OrderService(ProviderClient providerClient, OrderRepository orderRepository) {
         this.providerClient = providerClient;
+        this.orderRepository = orderRepository;
     }
 
     public OrderEntity createOrder(OrderDto orderDto) {
@@ -33,23 +38,28 @@ public class OrderService {
             );
         response.getBody().getAddress() */
         try {
+            OrderEntity orderEntity = new OrderEntity();
+            orderEntity.setDestinationAddress(orderDto.getAddress().toString());
+            orderEntity.setStatus(Status.CREATED);
+            this.orderRepository.save(orderEntity);
+
             ProviderDto providerDto = this.providerClient.getProviderInfo(orderDto.getAddress().getState());
             if(providerDto == null) {
                 this.logger.error("Provider not found");
-                throw new NotFoundException("Provider not found");
+                return orderEntity;
             }
 
             ProviderOrderInfoDto providerOrderInfoDto = this.providerClient.createOrder(orderDto.getItems());
             if(providerOrderInfoDto == null) {
                 this.logger.error("Could not create order");
-                throw new NotFoundException("Could not create order");
+                return orderEntity;
             }
 
             this.logger.info("Provider order info: {}", providerOrderInfoDto);
-            OrderEntity orderEntity = new OrderEntity();
-            orderEntity.setId(providerOrderInfoDto.getId());
+            orderEntity.setProviderOrderId(providerOrderInfoDto.getId());
             orderEntity.setLeadTime(providerOrderInfoDto.getLeadTime());
-            orderEntity.setDestinationAddress(orderDto.getAddress().toString());
+            orderEntity.setStatus(Status.IN_PROGRESS);
+            this.orderRepository.save(orderEntity);
 
             return orderEntity;
         } catch (Exception e) {

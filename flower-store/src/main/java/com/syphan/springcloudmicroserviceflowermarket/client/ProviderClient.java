@@ -1,6 +1,6 @@
 package com.syphan.springcloudmicroserviceflowermarket.client;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.Item;
+import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderDto;
 import com.syphan.springcloudmicroserviceflowermarket.model.dto.ProviderOrderInfoDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,5 +19,5 @@ public interface ProviderClient {
     ProviderDto getProviderInfo(@PathVariable String state);
 
     @RequestMapping(method = RequestMethod.POST, value = "/order")
-    ProviderOrderInfoDto createOrder(List<Item> items);
+    ProviderOrderInfoDto createOrder(List<ItemEntity> itemEntities);
 }

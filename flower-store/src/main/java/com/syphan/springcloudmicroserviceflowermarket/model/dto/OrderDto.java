@@ -1,20 +1,20 @@
 package com.syphan.springcloudmicroserviceflowermarket.model.dto;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.Item;
+import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
 
 import java.util.List;
 
 public class OrderDto {
 
-    private List<Item> items;
+    private List<ItemEntity> itemEntities;
     private AddressDto address;
 
-    public List<Item> getItems() {
-        return items;
+    public List<ItemEntity> getItems() {
+        return itemEntities;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setItems(List<ItemEntity> itemEntities) {
+        this.itemEntities = itemEntities;
     }
 
     public AddressDto getAddress() {

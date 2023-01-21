@@ -1,13 +1,13 @@
 package com.syphan.springcloudmicroserviceflowermarket.model;
 
-public class Item {
+public class ItemEntity {
 
     private long id;
     private long quantity;
 
-    public Item() { }
+    public ItemEntity() { }
 
-    public Item(long id, long quantity) {
+    public ItemEntity(long id, long quantity) {
         this.id = id;
         this.quantity = quantity;
     }

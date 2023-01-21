@@ -1,24 +1,32 @@
 package com.syphan.springcloudmicroserviceflowermarket.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.syphan.springcloudmicroserviceflowermarket.model.enums.Status;
+import jakarta.persistence.*;
 
 @Entity
 public class OrderEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long providerOrderId;
 
     private int leadTime;
 
     private String destinationAddress;
 
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     public OrderEntity() { }
 
-    public OrderEntity(Long id, int leadTime, String destinationAddress) {
+    public OrderEntity(Long id, Long providerOrderId, int leadTime, String destinationAddress, Status status) {
         this.id = id;
+        this.providerOrderId = providerOrderId;
         this.leadTime = leadTime;
         this.destinationAddress = destinationAddress;
+        this.status = status;
     }
 
     public Long getId() {
@@ -27,6 +35,14 @@ public class OrderEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getProviderOrderId() {
+        return providerOrderId;
+    }
+
+    public void setProviderOrderId(Long providerOrderId) {
+        this.providerOrderId = providerOrderId;
     }
 
     public int getLeadTime() {
@@ -43,5 +59,13 @@ public class OrderEntity {
 
     public void setDestinationAddress(String destinationAddress) {
         this.destinationAddress = destinationAddress;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
