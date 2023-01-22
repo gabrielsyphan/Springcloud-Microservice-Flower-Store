@@ -1,6 +1,6 @@
-'package com.syphan.springcloudmicroserviceflowermarket.model;
+package com.syphan.springcloudmicroserviceflowermarket.domain;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.enums.Status;
+import com.syphan.springcloudmicroserviceflowermarket.domain.enums.Status;
 import jakarta.persistence.*;
 
 @Entity
@@ -69,4 +69,3 @@ public class OrderEntity {
         this.status = status;
     }
 }
-'

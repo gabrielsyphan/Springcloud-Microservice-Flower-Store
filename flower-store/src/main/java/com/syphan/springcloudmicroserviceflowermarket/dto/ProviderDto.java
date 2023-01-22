@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowermarket.dto;
 
 public class ProviderDto {
 

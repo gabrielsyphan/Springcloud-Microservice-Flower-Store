@@ -1,7 +1,7 @@
 package com.syphan.springcloudmicroserviceflowermarket.controller;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.OrderEntity;
-import com.syphan.springcloudmicroserviceflowermarket.model.dto.OrderDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.OrderEntity;
+import com.syphan.springcloudmicroserviceflowermarket.dto.OrderDto;
 import com.syphan.springcloudmicroserviceflowermarket.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<OrderEntity> deleteOrder(@PathVariable Long id) {
+    public ResponseEntity deleteOrder(@PathVariable Long id) {
         this.logger.info("Delete order: {}", id);
         this.orderService.deleteOrder(id);
         return ResponseEntity.noContent().build(); // return 204 status code

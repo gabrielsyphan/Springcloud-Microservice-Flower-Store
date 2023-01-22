@@ -1,16 +1,16 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowermarket.dto;
 
-import com.syphan.springcloudmicroserviceflowermarket.model.ItemEntity;
+import com.syphan.springcloudmicroserviceflowermarket.domain.ItemEntity;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
 public class OrderDto {
 
-    @NotNull
+    @NotNull(message = "{itemEntities.required}")
     private List<ItemEntity> itemEntities;
 
-    @NotNull
+    @NotNull(message = "{address.required}")
     private AddressDto address;
 
     public List<ItemEntity> getItems() {

@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.enums;
+package com.syphan.springcloudmicroserviceflowermarket.domain.enums;
 
 public enum Status {
     CREATED,

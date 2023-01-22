@@ -1,20 +1,20 @@
-package com.syphan.springcloudmicroserviceflowermarket.model.dto;
+package com.syphan.springcloudmicroserviceflowermarket.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 public class AddressDto {
 
-    @NotBlank
+    @NotBlank(message = "Street is required")
     private String street;
 
-    @Min(1)
+    @Min(value = 1, message = "House number must be greater than 0")
     private int number;
 
-    @NotBlank
+    @NotBlank(message = "State is required")
     private String state;
 
-    @NotBlank
+    @NotBlank(message = "City is required")
     private String city;
 
     public AddressDto() { }
