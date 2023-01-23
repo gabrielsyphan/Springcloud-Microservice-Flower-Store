@@ -1,8 +1,8 @@
-package com.syphan.springcloudmicroserviceflowermarket.client;
+package com.syphan.springcloudmicroserviceflowermarket.domain.client;
 
-import com.syphan.springcloudmicroserviceflowermarket.dto.OrderDto;
-import com.syphan.springcloudmicroserviceflowermarket.dto.ProviderDto;
-import com.syphan.springcloudmicroserviceflowermarket.dto.ProviderOrderInfoDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.OrderDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.ProviderDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.ProviderOrderInfoDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

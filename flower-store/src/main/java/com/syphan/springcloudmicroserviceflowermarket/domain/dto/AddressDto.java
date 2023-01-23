@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.dto;
+package com.syphan.springcloudmicroserviceflowermarket.domain.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

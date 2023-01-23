@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.domain;
+package com.syphan.springcloudmicroserviceflowermarket.domain.model;
 
 public class ItemEntity {
 

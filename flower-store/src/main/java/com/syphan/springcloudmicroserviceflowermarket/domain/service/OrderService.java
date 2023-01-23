@@ -1,17 +1,17 @@
-package com.syphan.springcloudmicroserviceflowermarket.service;
+package com.syphan.springcloudmicroserviceflowermarket.domain.service;
 
-import com.syphan.springcloudmicroserviceflowermarket.client.ProviderClient;
-import com.syphan.springcloudmicroserviceflowermarket.domain.OrderEntity;
-import com.syphan.springcloudmicroserviceflowermarket.dto.ProviderDto;
-import com.syphan.springcloudmicroserviceflowermarket.dto.ProviderOrderInfoDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.client.ProviderClient;
+import com.syphan.springcloudmicroserviceflowermarket.domain.model.OrderEntity;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.ProviderDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.ProviderOrderInfoDto;
 import com.syphan.springcloudmicroserviceflowermarket.domain.enums.Status;
-import com.syphan.springcloudmicroserviceflowermarket.repository.OrderRepository;
+import com.syphan.springcloudmicroserviceflowermarket.domain.repository.OrderRepository;
 import jakarta.ws.rs.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.syphan.springcloudmicroserviceflowermarket.dto.OrderDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.OrderDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.syphan.springcloudmicroserviceflowermarket.dto;
+package com.syphan.springcloudmicroserviceflowermarket.domain.dto;
 
 import org.springframework.validation.FieldError;
 

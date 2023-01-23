@@ -1,6 +1,6 @@
-package com.syphan.springcloudmicroserviceflowermarket.repository;
+package com.syphan.springcloudmicroserviceflowermarket.domain.repository;
 
-import com.syphan.springcloudmicroserviceflowermarket.domain.OrderEntity;
+import com.syphan.springcloudmicroserviceflowermarket.domain.model.OrderEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

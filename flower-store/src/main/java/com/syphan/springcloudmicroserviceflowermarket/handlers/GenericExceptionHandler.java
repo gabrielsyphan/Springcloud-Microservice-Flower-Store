@@ -1,6 +1,6 @@
 package com.syphan.springcloudmicroserviceflowermarket.handlers;
 
-import com.syphan.springcloudmicroserviceflowermarket.dto.BeanValidationExceptionDto;
+import com.syphan.springcloudmicroserviceflowermarket.domain.dto.BeanValidationExceptionDto;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
